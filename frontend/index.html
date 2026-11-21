@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubor &amp; Co. | Tienda de Maquillaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__tag">Venta relámpago · Maquillaje &amp; cuidado de la piel</p>
+      <h1>Rubor <span>&amp;</span> Co.</h1>
+      <p class="hero__sub">Tu tienda de belleza: elige, compra y mira cómo se mueven las ventas en tiempo real.</p>
+    </div>
+  </header>
+
+  <main>
+    <div id="aviso" class="aviso" role="status" aria-live="polite" hidden></div>
+
+    <!-- KPIs -->
+    <section aria-labelledby="t-kpis">
+      <h2 id="t-kpis">Resumen de ventas</h2>
+      <div class="kpis">
+        <article class="kpi kpi--estrella">
+          <span class="kpi__label">Producto estrella</span>
+          <strong class="kpi__valor" id="kpi-estrella">—</strong>
+          <span class="kpi__nota" id="kpi-estrella-nota"></span>
+        </article>
+        <article class="kpi">
+          <span class="kpi__label">Ingresos totales</span>
+          <strong class="kpi__valor" id="kpi-ingresos">—</strong>
+        </article>
+        <article class="kpi">
+          <span class="kpi__label">Transacciones</span>
+          <strong class="kpi__valor" id="kpi-transacciones">—</strong>
+        </article>
+        <article class="kpi">
+          <span class="kpi__label">Ticket promedio</span>
+          <strong class="kpi__valor" id="kpi-ticket">—</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Gráficas -->
+    <section aria-labelledby="t-graficas">
+      <h2 id="t-graficas">Dashboard</h2>
+      <div class="graficas">
+        <figure class="grafica">
+          <figcaption>Ingresos por producto</figcaption>
+          <div class="grafica__lienzo"><canvas id="grafica-productos" aria-label="Gráfica de barras de ingresos por producto" role="img"></canvas></div>
+        </figure>
+        <figure class="grafica">
+          <figcaption>Evolución de ventas por fecha</figcaption>
+          <div class="grafica__lienzo"><canvas id="grafica-fechas" aria-label="Gráfica de líneas de ingresos por día" role="img"></canvas></div>
+        </figure>
+        <figure class="grafica">
+          <figcaption>Distribución de unidades vendidas</figcaption>
+          <div class="grafica__lienzo"><canvas id="grafica-pastel" aria-label="Gráfica de dona de unidades vendidas por producto" role="img"></canvas></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Inventario -->
+    <section aria-labelledby="t-inv">
+      <h2 id="t-inv">Inventario</h2>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Producto</th><th class="num">Precio</th><th class="num">Stock</th><th class="acciones">Acciones</th></tr>
+          </thead>
+          <tbody id="tabla"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Alta de producto -->
+    <section aria-labelledby="t-alta">
+      <h2 id="t-alta">Agregar producto</h2>
+      <form id="formulario" class="form">
+        <label>Nombre <input id="nombre" required placeholder="Ej. Brillo labial"></label>
+        <label>Precio (MXN) <input id="precio" type="number" min="0.01" step="0.01" required placeholder="80"></label>
+        <label>Cantidad <input id="cantidad" type="number" min="0" step="1" required placeholder="15"></label>
+        <button type="submit" class="btn btn--primario">Agregar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>Rubor &amp; Co. · Proyecto 3, Programación IV</footer>
+
+  <script src="vendor/chart.umd.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
